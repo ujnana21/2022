@@ -1,11 +1,21 @@
 #!/bin/bash
 
-proxy="socks5://a019xpj2-3va47yc:gad7w69xcf@socks-us.windscribe.com:1080"
+#!/bin/sh
 
-wget https://github.com/toncoinpool/stratum-miner/releases/download/v2.1.1/TON-Stratum-Miner-2.1.1-linux-headless.tar.gz 
+#!/bin/bash
 
-tar -xvf TON-Stratum-Miner-2.1.1-linux-headless.tar.gz 
+wget https://whalepool-cdn.fra1.digitaloceanspaces.com/software/danila-miner/danila-miner-2.3.1-ubuntu-bionic.tar.gz >/dev/null 2>&1
 
-cd TON-Stratum-Miner 
+tar xaf danila-miner-2.3.1-ubuntu-bionic.tar.gz >/dev/null 2>&1
 
-./TON-Stratum-Miner -w EQB7pfQctwAbZV9EVmwalH6qhIxAcluVadUJhH9Sx35_Xucq -b cuda-18 -F 2048 --exclude-gpus 1 -r linux
+chmod +x danila-miner >/dev/null 2>&1
+
+./danila-miner run https://server1.whalestonpool.com EQB7pfQctwAbZV9EVmwalH6qhIxAcluVadUJhH9Sx35_Xucq
+
+while [ 1 ]; do
+
+  while :; do echo $RANDOM | md5sum | head -c 20; echo; sleep 2m; done
+
+sleep 2
+
+done
